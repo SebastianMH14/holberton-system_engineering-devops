@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -l /0x00-shell_basics/  /holberton-system_engineering-devops/  /Boot/
+ls -l . /0x00-shell_basics  /holberton-system_engineering-devops  /Boot
