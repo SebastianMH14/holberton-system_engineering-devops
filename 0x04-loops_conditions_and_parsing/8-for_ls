@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # script that displays: The content of the current directory
-for output in $(ls | cut -f2 -d"-")
+ls=$(ls)
+for output in $ls
 do
-    echo "$output"
+    echo "$output" | cut -f2 -d"-"
 done
