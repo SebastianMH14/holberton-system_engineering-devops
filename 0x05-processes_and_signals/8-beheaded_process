@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#kill the procces with pkill
+kill "$(pgrep -f ./7-highlander)"
