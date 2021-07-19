@@ -1,6 +1,6 @@
 <h1 class="gap">0x09. Web infrastructure design</h1>
 <div class="gap" id="project-description">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/lQNEW76KdYg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  
 
 <h2>Resources</h2>
 
