@@ -2,9 +2,11 @@
 #Bash script that creating
 #Bash script that displays
 echo $$ > /var/run/holbertonscript.pid
-trap "echo 'I hate the kill command' && rm '/var/run/holbertonscript.pid'" SIGTERM
-trap "echo 'Y U no love me?!'"
 while true
 do
-	echo "To infinity and beyond"
+    echo "To infinity and beyond"
+    trap "{ echo 'I hate the kill command' ; rm '/var/run/holbertonscript.pid' ; exit ; }" SIGTERM
+    trap "{ echo 'Y U no love me?!' ; }" SIGINT
+    trap "{ rm '/var/run/holbertonscript.pid' ; exit ; }" SIGQUIT
+    sleep 2
 done
