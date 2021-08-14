@@ -2,7 +2,7 @@
 
 file { '/tmp/holberton':
 ensure  => present,
-content => 'I love puppet',
+content => 'I love Puppet',
 owner   => www-data,
 group   => www-data,
 mode    => '0744',
