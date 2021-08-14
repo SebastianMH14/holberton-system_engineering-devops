@@ -1,9 +1,9 @@
-# my first file with puppet
+#my first file with puppet
 
-file{ '/tmp/holberton':
-ensure  =>present,
-mode    =>'0744',
+file { '/tmp/holberton':
+ensure  => present,
+content => 'I love puppet',
 owner   => www-data,
 group   => www-data,
-content =>'I love puppet',
+mode    => '0744',
 }
