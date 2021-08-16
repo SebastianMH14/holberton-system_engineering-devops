@@ -2,7 +2,7 @@
 include stdlib
 file_line { 'use private key':
     path    => '/etc/ssh/ssh_config',
-    line    => '    IdentityFile ~/.ssh/holberton'
+    line    => '    IdentityFile ~/.ssh/holberton',
     replace => true,
 }
 
