@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# Fix my server with one magic line
-service apache2 restart
