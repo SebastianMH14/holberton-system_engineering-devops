@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 #Nginx must be running, and listening on port 80
 rm /etc/nginx/sites-enabled/default
+sed -i "/listen [::]:80 default_server ipv6only=on;/ listen [::]:80 default_server;/" /etc/nginx/sites-available/default
 cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx restart
