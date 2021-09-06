@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# only the parameter domain is provided, display information for its subdomains www
+if [ "$#" -eq 1 ]
+then
+for subdomain in 'www' 'lb-01' 'web-01' 'web-02'
+do
+dig $subdomain."$1" | grep -A1 'ANSWER SECTION:' | awk -v sub_dom=$subdomain ' NR==2 {print "The subdomain " sub_dom " is a " $4 " record and points to " $5}'
+done
+fi
+
+if [ "$#" -eq 2 ];
+then
+dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk -v sub_dom="$2" ' NR==2 {print "The subdomain " sub_dom " is a " $4 " record and points to " $5}'
+fi
