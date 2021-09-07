@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #Fix this container so that Nginx is running as the nginx user
-service nginx stop
-su root -c "sudo -u nginx "nginx start""
+sudo chmod 600 /etc/nginx/nginx.conf
+sudo -u nginx service nginx start
