@@ -5,11 +5,12 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    id = (argv[1])
+    id = int(argv[1])
     user = requests.get(
-        'https://jsonplaceholder.typicode.com/users/' + id).json()
+        'https://jsonplaceholder.typicode.com/users/{}'.format(id)).json()
     todos = requests.get(
-        'https://jsonplaceholder.typicode.com/todos?userId=' + id).json()
+        'https://jsonplaceholder.typicode.com/todos?userId={}'
+        .format(id)).json()
 
     tareas = []
     for task in todos:
