@@ -12,7 +12,7 @@ if __name__ == "__main__":
     todos = requests.get(
         'https://jsonplaceholder.typicode.com/todos?userId={}'
         .format(id)).json()
-    
+
     tareas = []
     for task in todos:
         if task.get('completed') is True:
