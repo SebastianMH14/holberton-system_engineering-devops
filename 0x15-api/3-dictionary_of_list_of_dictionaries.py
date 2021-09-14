@@ -5,26 +5,23 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    """list task to Employees"""
-    user = requests.get(
-        'https://jsonplaceholder.typicode.com/users/').json()
-    todos = requests.get(
-        'https://jsonplaceholder.typicode.com/todos/').json()
+
+    all_data = requests.get(
+        "https://jsonplaceholder.typicode.com/users/")
+    user = all_data.json()
 
     data = {}
     for users in user:
-        data_list = []
-        tareas = requests.get(
-            'https://jsonplaceholder.typicode.com/todos?userId={}'.format
-            (users.get('id'))).json()
+        f_data = []
+        v = {"userId": users["id"]}
+        todos = requests.get(
+            "https://jsonplaceholder.typicode.com/todos/", params=v)
+        todos = todos.json()
+        for todo in todos:
+            f_data.append(
+                {"username": users["username"], "task": todo["title"],
+                    "completed": todo["completed"]})
+        data[users['id']] = f_data
 
-    for task in tareas:
-        name = users.get('username')
-        title = task.get('title')
-        status = task.get('completed')
-        my_dict = {"username": name, "task": title, "completed": status}
-        data_list.append(my_dict)
-        data[users.get('id')] = data_list
-
-    with open('todo_all_employees.json', mode='w') as f:
+    with open("todo_all_employees.json", "w", newline="") as f:
         json.dump(data, f)
