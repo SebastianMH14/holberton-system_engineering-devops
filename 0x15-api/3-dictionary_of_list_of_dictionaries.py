@@ -7,10 +7,9 @@ from sys import argv
 if __name__ == "__main__":
     """list task to Employees"""
     user = requests.get(
-        'https://jsonplaceholder.typicode.com/users/{}'.format(id)).json()
+        'https://jsonplaceholder.typicode.com/users').json()
     todos = requests.get(
-        'https://jsonplaceholder.typicode.com/todos?userId={}'
-        .format(id)).json()
+        'https://jsonplaceholder.typicode.com/todos').json()
     empty_users = {}
     empty_id = {}
     for users in user:
@@ -19,7 +18,7 @@ if __name__ == "__main__":
         empty_id[user_id] = users.get('username')
 
     for todo in todos:
-        id = todos.get("userId")
+        id = todo.get("userId")
         aux = {}
         aux['task'] = todo.get('title')
         aux['completed'] = todo.get('completed')
