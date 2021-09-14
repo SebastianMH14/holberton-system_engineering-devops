@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """script to export data in the JSON format"""
 import json
 import requests
@@ -6,9 +7,9 @@ import sys
 if __name__ == "__main__":
     """list task to Employees"""
     user = requests.get(
-        'https://jsonplaceholder.typicode.com/users').json()
+        'https://jsonplaceholder.typicode.com/users/').json()
     todos = requests.get(
-        'https://jsonplaceholder.typicode.com/todos').json()
+        'https://jsonplaceholder.typicode.com/todos/').json()
 
     data = {}
     for users in user:
