@@ -1,8 +1,7 @@
 """script to export data in the JSON format"""
 import json
 import requests
-from sys import argv
-
+import sys
 
 if __name__ == "__main__":
     """list task to Employees"""
@@ -10,20 +9,21 @@ if __name__ == "__main__":
         'https://jsonplaceholder.typicode.com/users').json()
     todos = requests.get(
         'https://jsonplaceholder.typicode.com/todos').json()
-    empty_users = {}
-    empty_id = {}
-    for users in user:
-        user_id = users.get('id')
-        empty_users[user_id] = []
-        empty_id[user_id] = users.get('username')
 
-    for todo in todos:
-        id = todo.get("userId")
-        aux = {}
-        aux['task'] = todo.get('title')
-        aux['completed'] = todo.get('completed')
-        aux['username'] = empty_id.get(id)
-        empty_users[id].append(aux)
+    data = {}
+    for users in user:
+        data_list = []
+        tareas = requests.get(
+            'https://jsonplaceholder.typicode.com/todos?userId={}'.format
+            (users.get('id'))).json()
+
+    for task in tareas:
+        name = users.get('username')
+        title = task.get('title')
+        status = task.get('completed')
+        my_dict = {"username": name, "task": title, "completed": status}
+        data_list.append(my_dict)
+        data[users.get('id')] = data_list
 
     with open('todo_all_employees.json', mode='w') as f:
-        json.dump(empty_users, f)
+        json.dump(data, f)
