@@ -19,7 +19,7 @@ if __name__ == "__main__":
     data_list = list()
     for task in todos:
         title = task.get('title')
-        status = task.get('status')
+        status = task.get('completed')
         final_dict = {"task": title, "completed": status, "username": name}
         data_list.append(final_dict)
         data_dict[id] = data_list
