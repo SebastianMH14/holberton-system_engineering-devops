@@ -7,10 +7,11 @@ import requests
 def top_ten(subreddit):
     """the hottest reddits"""
     params = {"limit": 10}
+    headers = {"User-agent": "goat"}
     data = requests.get("https://www.reddit.com/r/{}/hot.json".format(
         subreddit),
         allow_redirects=False,
-        params=params)
+        params=params, headers=headers)
     if data.status_code == 200:
         data = data.json()
         posts = data["data"]["children"]
