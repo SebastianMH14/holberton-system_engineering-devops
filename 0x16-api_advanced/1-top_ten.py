@@ -5,7 +5,7 @@ import requests
 
 
 def top_ten(subreddit):
-    """the hottest reddits"""
+    """the ten hottest reddits"""
     params = {"limit": 10}
     headers = {"User-agent": "holbie"}
     data = requests.get("https://www.reddit.com/r/{}/hot.json".format(
