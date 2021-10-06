@@ -5,9 +5,10 @@ import requests
 
 def number_of_subscribers(subreddit):
     """returns the number of subscribers"""
+    headers = {"User-agent": "goat"}
     try:
         r = requests.get('https://www.reddit.com/r/{}/about/.json'.format(
-                subreddit))
+                subreddit), headers=headers)
         data = r.json()
         return(data['data']['subscribers'])
     except:
